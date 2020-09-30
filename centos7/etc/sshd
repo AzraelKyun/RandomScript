@@ -1,0 +1,11 @@
+#%PAM-1.0
+
+account sufficient  pam_unix.so
+account required    pam_mysql.so   config_file=/etc/pam_mysql.cfg
+
+auth    sufficient  pam_unix.so
+auth    required    pam_mysql.so   config_file=/etc/pam_mysql.cfg
+auth    required    pam_env.so
+
+password    include system-auth
+session     include system-auth
